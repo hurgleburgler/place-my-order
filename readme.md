@@ -41,3 +41,5 @@ In Unix environment the production application can be started like this:
 NODE_ENV=production npm start
 ```# place-my-order
 # place-my-order
+
+[![Build Status](https://travis-ci.org/hurgleburgler/place-my-order.png?branch=master)](https://travis-ci.org/hurgleburgler/place-my-order)
