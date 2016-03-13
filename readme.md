@@ -2,6 +2,11 @@
 
 Welcome to the place-my-order DoneJS application!
 
+## Build Status
+
+[![Build Status](https://travis-ci.org/hurgleburgler/place-my-order.png?branch=master)](https://travis-ci.org/hurgleburgler/place-my-order)
+
+
 ## Getting started
 
 To install all dependencies, (e.g. after cloning it from a Git repository) run
@@ -42,4 +47,3 @@ NODE_ENV=production npm start
 ```# place-my-order
 # place-my-order
 
-[![Build Status](https://travis-ci.org/hurgleburgler/place-my-order.png?branch=master)](https://travis-ci.org/hurgleburgler/place-my-order)
