@@ -1,5 +1,21 @@
 language: node_js
 node_js: node
 before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  - 'export DISPLAY=:99.0'
+  - sh -e /etc/init.d/xvfb start
+before_deploy:
+  - 'git config --global user.email "hurgleburgler@gmail.com"'
+  - 'git config --global user.name "PMO deploy bot"'
+  - node build
+  - git add dist/ --force
+  - 'git commit -m "Updating build."'
+  - node_modules/.bin/deploy
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  app: still-brook-73179
+  api_key:
+    - secure: RzT1NhMR+R9v74xpBk0I1ZX+mWgNRFizXbHCV2tl6HuAR7fhVIHPA0E2l+p0Z7QBxl4gE3CSY0yqB7FGze4GEu9jsvWb5aC2o7dzlko+QwQm6kRcJD8MnZPrcygmCyn5b/ctbtlQ5TTYAt+T3W6YFP7rcui3QfPDXP2vjIb3XpbBJ1BDj3xEVFjO8WpcbBZO+2GI/1JlqMq+qE9bJS6RZ5qgyy3WR+CaTUNMD9KTD8S5gak+mICokN5W+XbaRfXgv746SOZUa+uSisLSNWMrS/QoEtS9WcJYGenbl1IOwAZxu7RjhviVTe8nw6CvHljotd2my/V+zsMzoz6whAH4dy4qMBqgMNo2K0pBr1CXXVOjOoxUzKjnQSj5V8UTXABkZF8ipiymQ841Wyh+MwdEkNReHhYDKoXMBIdiIDYcRXxliEZcDWAY+g+z7uVB2XJZ0j0c1Fasxav30Ht2k69fnptVttzOWcrVThUrdGZChK0U8Me3au6BUBn0uTtev1fZ9AIj4H99201HGt9HyXBFLCE42sghoXcXO9JLrIfQd9aVMhsvFHAH3IJLuXvv9e9VI5F25KFIonmBb5/qk7Mx9jSvV8EikCoSzPtmHTZqbsrEPrPPLRTVb3g9D81Q0ppEwIMKitVMhOx97a0rnwFVu08CfdV42g0pJUGIIBheGpI=
+env:
+  global:
+    - secure: D7uqY3M/E9I/xwWihRrXy2hSAT4ofcYvOOVdhyuEtKnv7fU9Ex6MXXrIOX4/hhUGRD4HJmVR2hRphLoPHDS7cKmyoWf+Z2tmRfByT8i9Xx+IB7a2RV0kor6sztgZUafb+aWyHG3fJGN1NsxYgeSVbGk2KUTHzzleLifoL+askg9/yq0viizedSMFH20IvXBUZrlAEo2Q5x6clm28kqlOked2ZvBQeCdpKCPdUKQll1MkLJtuoWUHBWNEpAxqQGYzWmMrzJmSgJGQh9tIsEnUu+U/jhZNmrWilNUiXe5V6RzYBn8+QPVVUq19Gzx4byQ+O6yYUb5+AVjg/v2nIVnZw1OtF6JObF9ygIl0qkxeZcYpUHTbETLNURgx8X1WawRjFBlE0jZu8K6bVTkw4y/PvgfhsRdg6cpcD7ZRBrOHXd4bsUylsKfAAqtU05VXotzMtxLwG5zpiPskcXXGxIr0pEqov7bgInGHMcdQhwEk6b8PVpLwxNZhMAjPuZSiO4rLLbep1I4self44R2D8ze7cNC6P2gpkPj5MWyDrKwUmph7qpooDqRIAXOpZk7hb9isf2VPLUm2+4HEpELB2mTCZSdWPp5PMTkf/4fU1DW4206+dYfi+Yxc9YQmEwZqOIq9eDDJxT8uDYOBFINLlIhcXOj17OU8dCUrVcev0R0sy9U=
